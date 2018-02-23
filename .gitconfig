@@ -1,0 +1,22 @@
+[core]
+	excludesFile = ~/.gitignore
+
+[alias]
+	fucked = reset --hard HEAD
+	welp = clean -df
+ 
+[fetch]
+  prune = true
+
+[github]
+	user = trdarr
+
+[interactive]
+  singleKey = true
+
+[user]
+	name = Thomas Darr
+	email = thomas.darr@izettle.com
+
+[pull]
+	rebase = true
