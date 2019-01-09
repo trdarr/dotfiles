@@ -1,0 +1,109 @@
+---
+- hosts: localhost
+  vars:
+    ansible_connection: local
+  tasks:
+    - name: symlink all the things
+      file:
+        path: '~/{{ item }}'
+        src: "{{ '..' | realpath }}/{{ item }}"
+        state: link
+      with_items:
+        - .base16_theme
+        - .gitconfig
+        - .gitignore
+        - .chunkwmrc
+        - .hushlogin
+        - .skhdrc
+        - .ssh
+        - .vimrc
+        - .zshrc
+
+    - name: generate ssh key
+      command: ssh-keygen -f ~/.ssh/id_ed25519 -N '' -t ed25519 -q
+      args:
+        creates: ~/.ssh/id_ed25519
+
+    - name: tap homebrew repositories
+      homebrew_tap:
+        name:
+          - homebrew/cask-fonts
+          - koekeishiya/formulae
+        state: present
+
+    - name: install homebrew formulae
+      homebrew:
+        name:
+          - ansible
+          - awscli
+          - bash
+          - chunkwm
+          - curl
+          - docker-compose
+          - gibo
+          - git
+          - jq
+          - node
+          - nvm
+          - pipenv
+          - python
+          - python@2
+          - pyenv
+          - skhd
+          - vim
+          - wget
+          - zsh
+        state: present
+
+    - name: install homebrew casks
+      homebrew_cask:
+        name:
+          - docker
+          - google-chrome
+          - graphql-ide
+          - intellij-idea
+          - iterm2
+          - keepassx
+          - postman
+          - slack
+          - tunneblick
+          - the-unarchiver
+          - visual-studio-code
+        state: present
+
+    - name: install homebrew font casks
+      homebrew_cask:
+        name: 
+          - font-input
+          - font-noto-sans
+          - font-noto-serif
+          - font-noto-mono
+          - font-open-sans
+          - font-pt-serif
+          - font-source-code-pro
+        state: present
+
+    - name: create directories for pathogen
+      file:
+        path: '{{ item }}'
+        state: directory
+      with_items:
+        - ~/.vim/autoload
+        - ~/.vim/bundle
+
+    - name: download pathogen
+      get_url:
+        dest: ~/.vim/autoload/pathogen.vim
+        url: https://tpo.pe/pathogen.vim
+
+    - name: install vim plugins
+      git:
+        clone: yes
+        dest: "~/.vim/bundle/{{ item.split('/')[1] }}"
+        repo: 'https://github.com/{{ item }}'
+        update: yes
+      with_items:
+        - chriskempson/base16-vim
+        - scrooloose/nerdtree
+        - vim-airline/vim-airline
+        - vim-airline/vim-airline-themes
