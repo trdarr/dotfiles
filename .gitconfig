@@ -6,13 +6,13 @@
 	welp = clean -df
  
 [fetch]
-  prune = true
+	prune = true
 
 [github]
 	user = trdarr
 
 [interactive]
-  singleKey = true
+	singleKey = true
 
 [user]
 	name = Thomas Darr
