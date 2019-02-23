@@ -1,0 +1,10 @@
+---
+- name: create ~/.ssh
+  file:
+    name: ~/.ssh
+    state: directory
+
+- name: generate ssh key
+  command: ssh-keygen -f ~/.ssh/id_ed25519 -N '' -t ed25519 -q
+  args:
+    creates: ~/.ssh/id_ed25519

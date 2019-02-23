@@ -1,0 +1,21 @@
+---
+- name: create directories for pathogen
+  file:
+    path: '{{ item }}'
+    state: directory
+  loop:
+    - ~/.vim/autoload
+    - ~/.vim/bundle
+
+- name: install pathogen
+  get_url:
+    dest: ~/.vim/autoload/pathogen.vim
+    url: https://tpo.pe/pathogen.vim
+
+- name: install vim plugins
+  git:
+    clone: yes
+    dest: "~/.vim/bundle/{{ item.split('/')[1] }}"
+    repo: 'https://github.com/{{ item }}.git'
+    update: yes
+  loop: '{{ plugins }}'

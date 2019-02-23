@@ -1,0 +1,6 @@
+---
+- name: install all the things
+  become: yes
+  pacman:
+    name: '{{ packages }}'
+    state: present

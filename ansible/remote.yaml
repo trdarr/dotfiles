@@ -1,0 +1,49 @@
+---
+- hosts: localhost
+  vars:
+    ansible_connection: local
+  roles:
+    - role: dotfiles
+      vars:
+        dotfiles:
+          - .gitconfig
+          - .gitignore
+          - .hushlogin
+          - .ssh/config
+          - .vimrc
+          - .zshrc
+    - role: ssh-key
+    - role: pacman
+      vars:
+        packages:
+          - ansible
+          - bash
+          - base-devel
+          - curl
+          - docker
+          - docker-compose
+          - git
+          - jq
+          - nodejs
+          - tmux
+          - tree
+          - vim
+          - wget
+          - zsh
+    - role: pathogen
+      vars:
+        plugins:
+          - airblade/vim-gitgutter
+          - corntrace/bufexplorer
+          - fatih/vim-go
+          - gregsexton/gitv
+          - jiangmiao/auto-pairs
+          - mileszs/ack.vim
+          - rbgrouleff/bclose.vim
+          - scrooloose/nerdcommenter
+          - scrooloose/nerdtree
+          - Shougo/neocomplete.vim
+          - Shougo/neosnippet.vim
+          - tpope/vim-fugitive
+          - vim-airline/vim-airline
+          - vim-syntastic/syntastic
