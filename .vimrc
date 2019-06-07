@@ -12,9 +12,7 @@ set shiftwidth=2
 set tabstop=2
 
 let base16colorspace=256
-colorscheme base16-eighties
-let g:airline_theme='base16_eighties'
-
+colorscheme nord
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
