@@ -79,6 +79,6 @@ setopt NO_BEEP
 setopt NO_HIST_BEEP
 setopt SHARE_HISTORY
 
-# Commented because it's very slow.
-# https://github.com/pypa/pipenv/issues/1247
-# eval "$(pipenv --completion)"
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
