@@ -15,8 +15,8 @@
 	singleKey = true
 
 [user]
-	name = Thomas Darr
-	email = thomas.darr@izettle.com
+	name = thomas darr
+	email = thomas.darr@acast.com
 
 [pull]
 	rebase = true
