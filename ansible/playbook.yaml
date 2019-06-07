@@ -34,6 +34,7 @@
           - ansible
           - awscli
           - bash
+          - cloc
           - curl
           - docker-compose
           - gibo
