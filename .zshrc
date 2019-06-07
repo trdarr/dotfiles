@@ -38,8 +38,6 @@ alias ls="ls -Gh"
 alias ll="ls -AGhl"
 alias tmux="tmux -2"
 
-source "$HOME/.base16_theme"
-
 function zle-line-init zle-keymap-select {
     VIM="%{$fg[green]%}${${KEYMAP/vicmd/N}/(main|viins)/I}%{$reset_color%}"
     PROMPT="%{$fg[blue]%}%~%{$reset_color%} $VIM " 
