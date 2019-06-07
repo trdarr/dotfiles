@@ -11,9 +11,7 @@
       with_items:
         - .gitconfig
         - .gitignore
-        - .chunkwmrc
         - .hushlogin
-        - .skhdrc
         - .ssh
         - .vimrc
         - .zshrc
@@ -27,7 +25,6 @@
       homebrew_tap:
         name:
           - homebrew/cask-fonts
-          - koekeishiya/formulae
         state: present
 
     - name: install homebrew formulae
@@ -36,7 +33,6 @@
           - ansible
           - awscli
           - bash
-          - chunkwm
           - curl
           - docker-compose
           - gibo
@@ -48,7 +44,6 @@
           - python
           - python@2
           - pyenv
-          - skhd
           - vim
           - wget
           - zsh
