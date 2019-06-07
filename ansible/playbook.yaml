@@ -9,7 +9,6 @@
         src: "{{ '..' | realpath }}/{{ item }}"
         state: link
       with_items:
-        - .base16_theme
         - .gitconfig
         - .gitignore
         - .chunkwmrc
@@ -103,7 +102,6 @@
         repo: 'https://github.com/{{ item }}'
         update: yes
       with_items:
-        - chriskempson/base16-vim
+        - arcticicestudio/nord-vim
         - scrooloose/nerdtree
         - vim-airline/vim-airline
-        - vim-airline/vim-airline-themes
