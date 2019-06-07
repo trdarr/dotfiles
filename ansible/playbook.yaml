@@ -12,6 +12,7 @@
         - .gitconfig
         - .gitignore
         - .hushlogin
+        - .psqlrc
         - .ssh
         - .vimrc
         - .zshrc
@@ -43,6 +44,7 @@
           - pipenv
           - python
           - python@2
+          - postgres
           - pyenv
           - vim
           - wget

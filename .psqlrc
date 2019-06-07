@@ -1,0 +1,8 @@
+\set QUIET
+
+\timing on
+\setenv PAGER 'less -S'
+\pset null ␀
+\pset linestyle unicode
+
+\unset QUIET
