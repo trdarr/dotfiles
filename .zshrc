@@ -4,7 +4,7 @@ autoload -Uz edit-command-line
 autoload -Uz vcs_info
 
 export EDITOR="vim"
-export GOPATH="$HOME/Development/go"
+export GOPATH="$HOME/go"
 export LANG="en_US.UTF-8"
 export LC_ALL="$LANG"
 export PATH="$HOME/bin:$GOPATH/bin:/usr/local/bin:$PATH"
